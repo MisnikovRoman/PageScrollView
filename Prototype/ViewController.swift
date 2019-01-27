@@ -45,12 +45,6 @@ class ViewController: UIViewController {
         
         // adding subviews
         views.forEach { self.scrollView.addSubview($0) }
-        
-        // set content size
-        scrollView.contentSize = CGSize(
-            width: superSize.width * CGFloat(views.count),
-            height: superSize.height
-        )
     }
 
     private func setupSegmentedControl() {
@@ -85,7 +79,6 @@ class ViewController: UIViewController {
         }
         
         let newContentOrigin = CGPoint(x: CGFloat(selectedItemNumber) * pageWidth, y: 0)
-        let rectToDisplay = CGRect(origin: newContentOrigin, size: self.scrollView.bounds.size)
         
         self.scrollView.setContentOffset(newContentOrigin, animated: true)
     }
